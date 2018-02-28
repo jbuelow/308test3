@@ -1,0 +1,17 @@
+language: java
+sudo: false
+install: true
+addons:
+  sonarcloud:
+    organization: jbuelow-github
+    token:
+      secure: 8c722174ebe97a38fa94745f886effe36023b9b2
+jdk:
+  - oraclejdk8
+script:
+  - ant build
+  - sonar-scanner
+cache:
+  directories:
+    - '$HOME/.m2/repository'
+    - '$HOME/.sonar/cache'
